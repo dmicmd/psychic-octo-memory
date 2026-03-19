@@ -94,6 +94,7 @@ The generic HID IN report is 32 bytes and uses the following response types:
 - `arm-none-eabi-objcopy`
 - `make`
 - `git`
+- `cc` or `gcc` (for `make test-host`)
 - `python3` (optional, for helper tooling)
 
 ### Fetch libopencm3

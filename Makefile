@@ -35,7 +35,7 @@ SRCS := \
 
 OBJS := $(patsubst src/%.c,$(BUILD_DIR)/%.o,$(SRCS))
 
-HOST_CC ?= gcc
+HOST_CC ?= cc
 HOST_CFLAGS := -std=c11 -Wall -Wextra -Werror -Iinclude
 HOST_TEST := $(BUILD_DIR)/host/test_core
 

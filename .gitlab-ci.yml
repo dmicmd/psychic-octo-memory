@@ -8,7 +8,7 @@ variables:
 
 before_script:
   - apt-get update
-  - apt-get install -y --no-install-recommends ca-certificates git make gcc-arm-none-eabi binutils-arm-none-eabi libnewlib-arm-none-eabi python3
+  - apt-get install -y --no-install-recommends ca-certificates git make gcc gcc-arm-none-eabi binutils-arm-none-eabi libnewlib-arm-none-eabi python3
   - mkdir -p lib
   - |
     if [ ! -d lib/libopencm3 ]; then
