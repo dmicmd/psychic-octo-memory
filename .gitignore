@@ -1,0 +1,6 @@
+build/
+lib/libopencm3/
+*.o
+*.elf
+*.bin
+*.map
