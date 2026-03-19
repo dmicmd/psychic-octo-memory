@@ -1,0 +1,29 @@
+image: debian:bookworm-slim
+
+stages:
+  - build
+
+variables:
+  GIT_SUBMODULE_STRATEGY: none
+
+before_script:
+  - apt-get update
+  - apt-get install -y --no-install-recommends ca-certificates git make gcc-arm-none-eabi binutils-arm-none-eabi libnewlib-arm-none-eabi python3
+  - mkdir -p lib
+  - |
+    if [ ! -d lib/libopencm3 ]; then
+      git clone --depth 1 https://github.com/libopencm3/libopencm3.git lib/libopencm3
+    fi
+  - make -C lib/libopencm3
+
+build:firmware:
+  stage: build
+  script:
+    - make test-host
+    - make
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - build/*.elf
+      - build/*.bin
